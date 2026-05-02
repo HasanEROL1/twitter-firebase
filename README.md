@@ -1,17 +1,48 @@
-# React + Vite
+# 🐦 Twitter Clone (React 19 + Firebase + Tailwind 4)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+Bu proje, en güncel web teknolojileri ve Firebase servisleri kullanılarak geliştirilmiş gerçek zamanlı bir sosyal medya uygulamasıdır. Kullanıcılar metin ve görsel içeren paylaşımlar yapabilir, veriler anlık olarak bulut üzerinde depolanır.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ ##📱 Demo
 
-## React Compiler
+ ![demo](tw-clone.gif)
+## 🛠 Teknik Teknoloji Yığını (Tech Stack)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **Çekirdek:** `React 19` & `Vite 7` (Modern ve hızlı geliştirme)
+*   **Stil Yönetimi:** `Tailwind CSS v4` (En yeni CSS standartları)
+*   **Backend as a Service (BaaS):** `Firebase v12` (Firestore & Storage)
+*   **Yönlendirme:** `React Router Dom v7`
+*   **Zaman Yönetimi:** `Moment.js`
+*   **Geri Bildirim:** `React Toastify`
+*   **İkon Seti:** `React Icons`
+*   **Benzersiz ID:** `UUID`
 
-## Expanding the ESLint configuration
+## ✨ Öne Çıkan Özellikler
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# twitter-firebase
+- **Tweet Paylaşımı:** Metin ve görsel desteğiyle içerik oluşturma.
+- **Görsel Önizleme:** Paylaşım öncesi `URL.createObjectURL` ile anlık resim önizleme ve iptal etme.
+- **Dinamik Zaman Gösterimi:** Tweetlerin atılma zamanını "3 dakika önce" gibi okunabilir formatta gösteren `moment.js` entegrasyonu.
+- **Düzenleme Göstergesi:** `isEdited` durumuna göre masaüstü ve mobilde farklılaşan görsel bilgilendirme.
+- **Performans:** `React.memo` ile gereksiz render'ların önlenmesi ve `useRef` ile optimize edilmiş form yönetimi.
+
+## 📁 Proje Dosya Yapısı
+```text
+src/
+ ├── components/       # Atomik bileşenler (UserAvatar, Form, UserInfo...)
+ ├── firebase/         # Firebase yapılandırması ve Storage yükleme fonksiyonları
+ ├── utils/            # Yardımcı fonksiyonlar (getUserName, helpers...)
+ ├── styles/           # Tailwind CSS yapılandırması
+ └── assets/           # Statik dosyalar
+
+
+## 1. Bağımlılıkları Yükleyin:
+
+-Bash
+
+npm install
+
+## 2. Geliştirme Sunucusunu Başlatın:
+
+Bash
+
+npm run dev
