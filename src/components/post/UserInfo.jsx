@@ -1,19 +1,26 @@
 import { MdEdit } from "react-icons/md"
 import { getUserName } from "../../utils/helpers"
-import moment from "moment"
+import moment from "moment/min/moment-with-locales"
+
+
+
+
+
+
 
 const UserInfo = ({tweet}) => {
 
 let date
 
-if(tweet?.createdAt) {
-  // tarih date veri formatına çevrildi
-  date = tweet.createdAt.toDate()
-  // gönderi ne zaman gönderildi
-  date = moment(date).fromNow(true)
-} else {
-  date ="bilinmiyor"
-}
+  if (tweet?.createdAt) {
+    date = moment(tweet.createdAt.toDate())
+      .locale("tr")
+      .fromNow()
+  } else {
+    date = "bilinmiyor"
+  }
+
+
 
 return (
     <div className="flex gap-2 items-center whitespace-nowrap text-gray-400 ">
@@ -24,7 +31,7 @@ return (
       {tweet.isEdited && (
        <p>
         <MdEdit className="md:hidden"/>
-        <span className="max-md:hidden"> * düzenlendi</span>
+        <span className="max-md:hidden"> (düzenlendi)</span>
        </p>
   
       )}

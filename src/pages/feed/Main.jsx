@@ -4,11 +4,7 @@ import List from "./List"
 
 const Main = ({user}) => {
   return (
-  <main className="border border-tw-gray overflow-y-auto ">
-      <header className="border-b  border-tw-gray p-4 font-bold">
-      Anasayfa
-    </header>
-
+  <main className="border border-[var(--color-tw-gray)] overflow-y-auto ">
     <Form user = {user}  />
 
     <List />

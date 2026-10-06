@@ -1,11 +1,12 @@
 import { onAuthStateChanged } from "firebase/auth"
 import { useEffect, useState } from "react"
-import { Outlet, replace, useNavigate } from "react-router-dom"
+import { Outlet, useLocation, useNavigate } from "react-router-dom"
 import { auth } from "../../firebase"
 import { toast } from "react-toastify"
 import PageLoader from "../loader/PageLoader"
 const Protected = () => {
   const navigate = useNavigate()
+  const location = useLocation()
   // oturumu açık olan kullanıcının state i
   const [user, setUser] = useState(undefined)
 
@@ -19,14 +20,20 @@ useEffect(() => {
 // yönlendirme ve bildirim
 useEffect(() => {
   if (user=== null){
-    navigate("/")
-  } else if (user && !user.emailVerified){
-    toast.info("Mailinizi Doğrulayın")
-    navigate("/")
-  } else if (user && user.emailVerified) {
-    navigate("/feed")
+    navigate("/", { replace: true })
+    return
   }
-}, [user,navigate])
+
+  if (user && !user.emailVerified){
+    toast.info("Mailinizi Doğrulayın")
+    navigate("/", { replace: true })
+    return
+  }
+
+  if (user && user.emailVerified && location.pathname === "/") {
+    navigate("/feed", { replace: true })
+  }
+}, [user, location.pathname, navigate])
   
 // oturum verileri gelene kadar yükleniyor bas
 if ( user=== undefined) {

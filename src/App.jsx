@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes,Route } from "react-router-dom"
 import Login from "./pages/login"
 import Feed from "./pages/feed"
+import Profile from "./pages/profile"
+import Settings from "./pages/settings"
+import More from "./pages/more"
 import Protected from "./components/protected"
 
 const App = () => {
@@ -12,15 +15,18 @@ return (
         {/* Protected Routes */}
       <Route element= {<Protected />} >
          <Route path="/feed" element={<Feed />} />
-        <Route path="/profile" element={<h6 >Profil</h6>} />
-        <Route path="/settings" element={<h6>Ayarlar</h6>} />
-        <Route path="/news" element={<h6>Haberler</h6>} />
+         <Route path="/notifications" element={<Feed />} />
+         <Route path="/messages" element={<Feed />} />
+         <Route path="/lists" element={<Feed />} />
+         <Route path="/bookmarks" element={<Feed />} />
+         <Route path="/verified" element={<Feed />} />
+         <Route path="/profile" element={<Profile />} />
+         <Route path="/settings" element={<Settings />} />
+         <Route path="/more" element={<More />} />
+        
 
     </Route >
-     
-
-
-  </Routes>
+       </Routes>
   </BrowserRouter>
   
   )

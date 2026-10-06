@@ -42,7 +42,11 @@ const handleDelete = () =>  {
               <button onClick={() => {setIsOpen(true)
                 // dropdownı kapat
                 checkboxRef.current.checked =false
-              }}
+              
+              } 
+              
+            
+            }
                 > 
                 <MdEdit className="text-blue-500 text-base" />
                <span>Düzenle</span>

@@ -27,12 +27,12 @@ const clearImage = () => {
   }
 }
 
- console.log(image)
+//  console.log(image)
   // form gönderilince
  const handleSubmit = async (e) => {
    e.preventDefault()
 const text = e.target.text.value
-const file = e.target.image.files[0]
+const file = fileInputRef.current?.files?.[0]
 
 if (!text && !file) return toast.warning("Lütfen içeiği belirleyiniz")
  
@@ -72,7 +72,7 @@ if (!text && !file) return toast.warning("Lütfen içeiği belirleyiniz")
   
 
   return (
-  <div className="border-b border-tw-gray p-4 flex gap-3 ">
+  <div className="border-b border-[var(--color-tw-gray)] p-4 flex gap-3 ">
    <UserAvatar photo={user.photoURL} name={user.displayName} />
     <form onSubmit={handleSubmit}
     className="w-full pt-1">

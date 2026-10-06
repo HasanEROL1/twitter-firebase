@@ -1,21 +1,14 @@
-import { signOut } from 'firebase/auth'
-import { auth } from '../../firebase'
 import { useOutletContext } from 'react-router-dom'
-import Nav from './Nav'
+import AppShell from '../../components/app-shell'
 import Main from './Main'
-import Aside from './Aside'
 
 const Feed = () => {
   const user = useOutletContext()
-  console.log(user)
-  return (
-    <div className='h-screen bg-primary owerflow-hidden text-secondary grid 
-    grid-cols-[1fr_minmax(300px,600px)_1fr]'>
 
-    <Nav user = {user} />
-    <Main user = {user} />
-    <Aside />
-   </div>
+  return (
+    <AppShell user={user} title="Anasayfa">
+      <Main user={user} />
+    </AppShell>
   )
 }
 

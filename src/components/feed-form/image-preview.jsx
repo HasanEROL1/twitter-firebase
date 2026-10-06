@@ -1,8 +1,6 @@
-import React from 'react'
 import { IoMdClose } from 'react-icons/io'
 
-const ImagePreview
- = ({image, clearImage}) => {
+const ImagePreview = ({image, clearImage}) => {
   return (
     image && (
       <div className='relative mb-3'> 
